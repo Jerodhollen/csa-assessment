@@ -4,3 +4,4 @@
 //= link_tree ../../../vendor/javascript .js
 //= require jquery
 //= require bootstrap-sprockets
+//= require bootstrap/bootstrap-tooltip

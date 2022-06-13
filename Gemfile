@@ -43,7 +43,7 @@ gem 'jquery-rails'
 # Webpacker is essential for assest compilation
 gem 'webpacker', '~> 5.0'  
 
-
+gem 'bootstrap-tooltip-rails'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

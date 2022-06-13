@@ -1,18 +1,43 @@
 /! inside app/views/welcome/index.html.erb
 #navbarToggleExternalContent.collapse
   .bg-dark.p-4
-    h5.text-white.h4 Collapsed content
-    span.text-muted Toggleable via the navbar brand.
+    h5.text-white.h4 Welcome to Jerod's Solution for the CSA SE I Assessment
+    span.text-muted This nav bar serves no other purpose than to make the page look pretty!
 nav.navbar.navbar-dark.bg-dark
   .container-fluid
     button.navbar-toggler aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label=("Toggle navigation") data-bs-target="#navbarToggleExternalContent" data-bs-toggle="collapse" type="button" 
       span.navbar-toggler-icon
-main
-  section.py-5.text-center.container
-    .row.py-lg-5
-      .col-lg-6.col-md-8.mx-auto
-        h1.fw-light Album example
-        p.lead.text-muted Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.
-        p
-          a.btn.btn-primary.my-2 href="#"  Main call to action
-          a.btn.btn-secondary.my-2 href="#"  Secondary action
+main.bg-warning
+  section.py-5.text-center.container-fluid
+      .row
+        .col
+           h1.text-white CSA Member Entries
+body.bg-primary
+  .container-fluid.px-4
+    .row.gx-5
+      - @entries.each  do |entry|
+        .col-sm-6.col-lg-3
+          .card.text-center
+            ul.list-group.list-group-flush
+            h6.card-header = entry.organization.truncate(25)
+            ul.list-group.list-group-item
+              img.card-img-top src="#{entry.asset_url}"
+            .card-header
+              em.small Submitted: #{entry.created.strftime('%b %d, %Y')} 
+            li.list-group-item
+              .btn.btn-outline-primary aria-controls="collapseExample" aria-expanded="false" data-bs-target="#collapseExample" data-bs-toggle="collapse" type="button" 
+                  | Learn more
+              #collapseExample.collapse
+                .card.card-body = entry.description.to_s.html_safe
+                  
+
+                
+          
+              
+
+                
+                
+            
+
+      
+
