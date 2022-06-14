@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
   def index
-    @entries = MemberEntry.all.order("created ASC")
+    @entries = MemberEntry.search(params[:search]).order("created ASC")
   end
 end

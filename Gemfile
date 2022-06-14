@@ -45,6 +45,8 @@ gem 'webpacker', '~> 5.0'
 
 gem 'bootstrap-tooltip-rails'
 
+gem 'kaminari'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

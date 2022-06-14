@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "entries#index"
+  resources :member_entries
+  get '/entry' => "entries#index"
+  
 end
