@@ -4,7 +4,7 @@
 require 'csv'
 
 member_entries_csv = File.read(Rails.root.join('lib', 'seeds', 'csa_member_entries.csv'))
-member_entries = CSV.parse(member_entries_csv, :headers => true, :encoding => 'ISO-8859-1')
+member_entries = CSV.parse(member_entries_csv, :headers => true, :encoding => 'utf-8')
 member_entries.each do |row|
   e = MemberEntry.new
   e.organization = row['organization']

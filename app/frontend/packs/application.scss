@@ -9,6 +9,38 @@
     }
 }
 
+.hovercard {
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+    left: 50%;
+    top: -90px;
+    transform: translateX(-50%);
+}
+
+.recent-link:hover .hovercard {
+    opacity: 1;
+    transition: 0.5s;
+    transition-delay: 0.1s;
+}
+
+
+/* Tooltip text */
+
+.tooltiptext {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    background-color: white;
+    padding: 18px;
+    border-radius: 5px;
+    color: black;
+    line-height: 15px;
+    transition: 1s;
+    width: 300px;
+}
+
 img {
     width: 100%;
     height: 15vw;
@@ -29,10 +61,6 @@ section {
     max-height: 40vh;
     overflow-y: scroll;
     text-align: left;
-}
-
-.btn {
-    margin-top: 24px;
 }
 
 // Import Bootstrap v5  

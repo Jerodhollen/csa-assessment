@@ -1,7 +1,7 @@
 /! inside app/views/welcome/index.html.erb
 #navbarToggleExternalContent.collapse
   .bg-dark.p-4
-    h5.text-white.h4 Welcome to Jerod's Solution for the CSA SE I Assessment
+    h1.text-white Welcome to Jerod's Solution for the CSA SE I Assessment
     span.text-muted This nav bar serves no other purpose than to make the page look pretty!
 nav.navbar.navbar-dark.bg-dark
   .container-fluid
@@ -9,37 +9,42 @@ nav.navbar.navbar-dark.bg-dark
       span.navbar-toggler-icon
 main.bg-warning
   section.py-5.text-center.container-fluid
-      .row
-        .col
-           h1.text-white CSA Member Entries
-      .row
-        = label_tag(:search, "Search by company:");
-        = form_with(url: '/entry', method: "GET", local: true) do 
-          = text_field_tag :search
-          = submit_tag "Search"
-      .row
+    .row
+      .col
+          h1.text-white CSA Member Entries
+    .container 
+      .row 
         .col 
-          .btn.btn-secondary aria-controls="collapseExample" aria-expanded="false" data-bs-target="#collapseExample" data-bs-toggle="collapse" type="button" 
-            | Reveal Descriptions
-        
+          h5.text-primary Search Organization, Scheme, or Service:
+          = form_with(url: '/entry', method: "GET", local: true) do 
+            = text_field_tag :search
+            = submit_tag "Search"
 body.bg-primary
   .container-fluid.px-4
     .row.gx-5
       - @entries.each  do |entry|
-        .col-sm-12.col-md-6.col-lg-3
+        .col-sm-12.col-md-6.col-lg-3 
           .card.text-center
-            h6.card-header.bg-dark.text-white = entry.organization.truncate(20)
+            h5.card-header.bg-dark.text-white = entry.service.truncate(25)
+            .card-header.bg-light
+              em.small = entry.created_at
             #img.ul.list-group.list-group-item
               img.card-img-top src="#{entry.asset_url}"
-            .card-header.bg-light
-              em.small #{entry.created.strftime('%b %d, %Y')} 
             .card-header.bg-warning
-              em.small #{entry.scheme}
-              #collapseExample.collapse
-                - if entry.description
-                  .card.card-body.bg-light.text-left = entry.description.to_s.html_safe
-                - else 
-                  .card.card-body.bg-light No description provided!
+              em.small = entry.scheme 
+            .card-header.bg-dark
+              li.recent-link
+                .btn.btn-outline-primary More Info
+                span class="hovercard"
+                  div class="tooltiptext"
+                    h4 = entry.organization
+                    p = entry.description.to_s.html_safe
+                  
+
+              
+            
+
+
 
                   
 
