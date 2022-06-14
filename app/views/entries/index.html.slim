@@ -35,8 +35,12 @@ body.bg-primary
               em.small #{entry.created.strftime('%b %d, %Y')} 
             .card-header.bg-warning
               em.small #{entry.scheme}
-              #collapseExample.collapse.text-left
-                .card.card-body = entry.description.to_s.html_safe
+              #collapseExample.collapse
+                - if entry.description
+                  .card.card-body.bg-light.text-left = entry.description.to_s.html_safe
+                - else 
+                  .card.card-body.bg-light No description provided!
+
                   
 
                 

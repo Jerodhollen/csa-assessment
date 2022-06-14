@@ -26,8 +26,13 @@ section {
 }
 
 #collapseExample {
-    max-height: 25vh;
+    max-height: 40vh;
     overflow-y: scroll;
+    text-align: left;
+}
+
+.btn {
+    margin-top: 24px;
 }
 
 // Import Bootstrap v5  
